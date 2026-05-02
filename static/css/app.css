@@ -1,0 +1,15 @@
+/* Drop zone drag-over highlight */
+#drop-zone.drag-over {
+  border-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Monospace for log messages */
+code, .font-mono {
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+}
+
+/* Plotly chart dark canvas background */
+.js-plotly-plot .plotly .main-svg {
+  background-color: transparent !important;
+}

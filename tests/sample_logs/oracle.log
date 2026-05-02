@@ -1,0 +1,38 @@
+2024-05-10 08:00:01.123 [main] INFO oracle.database.startup — Starting ORACLE instance (normal) OS id: 28442
+2024-05-10 08:00:01.456 [main] INFO oracle.database.startup — LICENSE_MAX_SESSION = 0
+2024-05-10 08:00:01.789 [main] INFO oracle.database.startup — Shared memory segment for instance 1 created, size 2048M
+2024-05-10 08:00:02.001 [LGWR] INFO oracle.database.startup — Thread 1 opened at log sequence 500
+2024-05-10 08:00:02.111 [LGWR] INFO oracle.database.startup — Successful open of redo thread 1
+2024-05-10 08:00:02.222 [SMON] INFO oracle.database.startup — SMON: enabling cache recovery
+2024-05-10 08:05:14.333 [main] INFO oracle.database.storage — db_recovery_file_dest_size of 8192 MB is 15% used
+2024-05-10 08:10:02.456 [DBWR] ERROR oracle.database.index — ORA-01502: index HR.IDX_EMP_SALARY or partition of such index is in unusable state
+2024-05-10 08:10:02.567 [DBWR] ERROR oracle.database.index — ORA-01502: index HR.IDX_EMP_SALARY or partition of such index is in unusable state
+2024-05-10 08:10:03.000 [DBWR] WARN oracle.database.index — Index rebuild recommended for HR.IDX_EMP_SALARY — performance degraded
+2024-05-10 08:12:45.111 [LGWR] INFO oracle.database.redo — Thread 1 advanced to log sequence 501 (LGWR switch)
+2024-05-10 08:12:45.222 [ARC0] INFO oracle.database.archive — Archived Log entry added, sequence 500
+2024-05-10 08:15:30.333 [DBWR] ERROR oracle.database.transaction — ORA-00060: Deadlock detected during DELETE operation on table FINANCE.INVOICES
+2024-05-10 08:15:30.444 [DBWR] ERROR oracle.database.transaction — Deadlock trace written to /u01/app/oracle/diag/rdbms/orcl/trace/orcl_ora_28500.trc
+2024-05-10 08:15:31.000 [SMON] WARN oracle.database.transaction — SMON: lock contention detected on FINANCE.INVOICES — retry recommended
+2024-05-10 08:20:12.111 [RMAN] INFO oracle.database.backup — Deleted 435 obsolete backup pieces from Recovery Catalog via RMAN
+2024-05-10 08:25:44.222 [DBWR] ERROR oracle.database.storage — ORA-01652: unable to extend temp segment by 128 in tablespace TEMP
+2024-05-10 08:25:44.333 [DBWR] ERROR oracle.database.storage — ORA-01652: unable to extend temp segment by 128 in tablespace TEMP
+2024-05-10 08:25:45.000 [DBWR] WARN oracle.database.storage — Tablespace TEMP at 95% capacity — consider adding datafiles
+2024-05-10 08:30:00.111 [LGWR] INFO oracle.database.redo — Incremental checkpoint up to RBA 0x1b6.2.0, current log tail at RBA 0x1276.2.0
+2024-05-10 08:35:12.222 [DBWR] ERROR oracle.database.index — Index validation failed for SALES.INV_IDX Object ID 98231
+2024-05-10 08:35:12.333 [DBWR] ERROR oracle.database.index — ORA-08102: index key not found, obj 98231, file 6, block 450
+2024-05-10 08:35:13.000 [DBWR] WARN oracle.database.index — Corrupt index blocks detected on SALES.INV_IDX — manual rebuild required
+2024-05-10 08:40:05.444 [ARC0] ERROR oracle.database.archive — ORA-00257: archiver error. Connect internal only, until freed.
+2024-05-10 08:40:05.555 [ARC0] ERROR oracle.database.archive — Error 19809 creating archive log file to fast_recovery_area/ORCL/archivelog/o1_mf_1_501.arc
+2024-05-10 08:40:06.000 [ARC0] WARN oracle.database.archive — Archive destination full — automatic archiving suspended
+2024-05-10 08:45:00.111 [main] WARN oracle.database.storage — db_recovery_file_dest_size of 8192 MB is 99% used — disk space critical
+2024-05-10 08:45:00.222 [SMON] INFO oracle.database.maintenance — Deleted 1228 entries from optimizer statistics retention policy
+2024-05-10 08:50:22.333 [SMON] ERROR oracle.database.memory — ORA-04031: unable to allocate 4096 bytes of shared memory in shared pool sga heap session parameters
+2024-05-10 08:50:23.000 [SMON] WARN oracle.database.memory — Shared pool fragmentation detected — consider flushing shared pool
+2024-05-10 08:55:10.444 [DBWR] ERROR oracle.database.datafile — ORA-01157: cannot identify or lock data file 12 — see DBWR trace file
+2024-05-10 08:55:10.555 [DBWR] ERROR oracle.database.datafile — ORA-01110: data file 12 at path /u01/app/oracle/oradata/ORCL/missing_data01.dbf not found
+2024-05-10 09:00:01.111 [TNS] ERROR oracle.database.listener — TNS-12541: TNS no listener on host db-srv-01 port 1521
+2024-05-10 09:00:01.222 [TNS] ERROR oracle.database.listener — Fatal NI connect error 12541 connecting to SERVICE_NAME=ORCL from app-01
+2024-05-10 09:00:02.000 [TNS] WARN oracle.database.listener — Listener not responding — verify lsnrctl status on db-srv-01
+2024-05-10 09:05:46.333 [LGWR] INFO oracle.database.redo — Thread 1 advanced to log sequence 502 (LGWR switch)
+2024-05-10 09:05:46.444 [ARC0] INFO oracle.database.archive — Archived Log entry added, sequence 501
+2024-05-10 09:10:00.555 [SMON] INFO oracle.database.maintenance — Cleanup of unused index segments for tablespace DATA01 completed

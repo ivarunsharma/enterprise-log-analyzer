@@ -1,0 +1,47 @@
+2024-01-15 10:20:01,123 INFO com.example.PaymentService — Application started on port 8080
+2024-01-15 10:20:05,234 INFO com.example.DatabasePool — Connection pool initialized: 10 connections to payments-db
+2024-01-15 10:21:10,456 INFO com.example.PaymentService — Processing payment request id=TXN-001 amount=250.00
+2024-01-15 10:21:11,789 ERROR com.example.DatabasePool — Connection timeout after 5000ms: host=payments-db port=5432
+2024-01-15 10:21:11,901 ERROR com.example.PaymentService — Failed to process payment TXN-001: Database connection unavailable
+2024-01-15 10:21:12,012 WARN com.example.RetryHandler — Retry attempt 1/3 for payment TXN-001
+2024-01-15 10:21:17,234 ERROR com.example.DatabasePool — Connection timeout after 5000ms: host=payments-db port=5432
+2024-01-15 10:21:17,345 WARN com.example.RetryHandler — Retry attempt 2/3 for payment TXN-001
+2024-01-15 10:21:22,456 ERROR com.example.DatabasePool — Connection timeout after 5000ms: host=payments-db port=5432
+2024-01-15 10:21:22,567 ERROR com.example.RetryHandler — Max retries exceeded for payment TXN-001 — transaction rolled back
+2024-01-15 10:21:22,678 ERROR com.example.PaymentService — Payment FAILED: TXN-001 — customer will be notified
+2024-01-15 10:22:00,111 INFO com.example.HealthCheck — Health check triggered by load balancer
+2024-01-15 10:22:00,222 WARN com.example.HealthCheck — Database health check DEGRADED: response time 4800ms (threshold: 2000ms)
+2024-01-15 10:22:01,333 INFO com.example.PaymentService — Processing payment request id=TXN-002 amount=75.50
+2024-01-15 10:22:01,444 ERROR com.example.DatabasePool — Connection timeout after 5000ms: host=payments-db port=5432
+2024-01-15 10:22:01,555 ERROR com.example.PaymentService — Failed to process payment TXN-002: Database connection unavailable
+2024-01-15 10:22:30,666 ERROR com.example.DatabasePool — Connection pool exhausted: all 10 connections timed out
+2024-01-15 10:22:30,777 ERROR com.example.PaymentService — CIRCUIT BREAKER OPENED: DatabasePool — suspending requests for 30s
+2024-01-15 10:22:31,888 WARN com.example.NotificationService — Payment failure notifications queued: 2 pending
+2024-01-15 10:22:45,999 INFO com.example.DatabasePool — Attempting reconnection to payments-db
+2024-01-15 10:22:46,111 ERROR com.example.DatabasePool — Reconnection failed: FATAL: remaining connection slots are reserved for replication
+2024-01-15 10:22:46,222 ERROR com.example.PaymentService — Reconnection attempt failed — all payment processing suspended
+2024-01-15 10:23:00,333 WARN com.example.AlertManager — PagerDuty alert triggered: P2 — Payment service database connectivity
+2024-01-15 10:23:01,444 INFO com.example.DatabasePool — Reconnection scheduled in 30 seconds
+2024-01-15 10:23:31,555 INFO com.example.DatabasePool — Attempting reconnection to payments-db
+2024-01-15 10:23:31,666 INFO com.example.DatabasePool — Successfully reconnected: 3 connections restored
+2024-01-15 10:23:32,777 INFO com.example.PaymentService — CIRCUIT BREAKER CLOSED: DatabasePool — resuming payment processing
+2024-01-15 10:23:33,888 INFO com.example.PaymentService — Processing queued payment TXN-001 (retry)
+2024-01-15 10:23:34,999 INFO com.example.PaymentService — Payment SUCCESS: TXN-001 amount=250.00
+2024-01-15 10:23:35,111 INFO com.example.PaymentService — Processing queued payment TXN-002 (retry)
+2024-01-15 10:23:36,222 INFO com.example.PaymentService — Payment SUCCESS: TXN-002 amount=75.50
+2024-01-15 10:24:00,333 WARN com.example.DatabasePool — Connection pool at 80% capacity: 8/10 connections in use
+2024-01-15 10:24:10,444 ERROR com.example.AuthService — JWT token validation failed: signature verification error for user=admin@corp.com
+2024-01-15 10:24:10,555 WARN com.example.SecurityFilter — Suspicious authentication attempt from IP 10.0.5.42 — rate limit applied
+2024-01-15 10:24:15,666 ERROR com.example.AuthService — JWT token validation failed: token expired for user=api-gateway
+2024-01-15 10:24:20,777 ERROR com.example.AuthService — JWT token validation failed: signature verification error for user=batch-processor
+2024-01-15 10:24:25,888 ERROR com.example.AuthService — Multiple JWT failures detected — possible certificate rotation issue
+2024-01-15 10:24:30,999 INFO com.example.CertManager — Certificate rotation event detected — propagating new certificate to services
+2024-01-15 10:24:45,111 INFO com.example.AuthService — New certificate loaded successfully
+2024-01-15 10:24:46,222 INFO com.example.AuthService — JWT validation restored — all tokens re-validated successfully
+2024-01-15 10:25:00,333 INFO com.example.DatabasePool — Connection pool stable: 5/10 connections in use
+2024-01-15 10:25:01,444 INFO com.example.PaymentService — Processing payment request id=TXN-003 amount=1200.00
+2024-01-15 10:25:01,555 INFO com.example.PaymentService — Payment SUCCESS: TXN-003 amount=1200.00
+2024-01-15 10:25:30,666 WARN com.example.DatabasePool — Slow query detected: SELECT * FROM transactions WHERE status='PENDING' took 3200ms
+2024-01-15 10:25:30,777 WARN com.example.DatabasePool — Slow query detected: UPDATE account_balances SET balance=? WHERE account_id=? took 2800ms
+2024-01-15 10:26:00,888 INFO com.example.PaymentService — Health check PASSED: all systems operational
+2024-01-15 10:26:01,999 INFO com.example.AlertManager — PagerDuty incident auto-resolved: Payment service restored

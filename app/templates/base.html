@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Enterprise Log Analyzer{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+  <nav class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center gap-4">
+    <a href="/" class="text-xl font-bold text-blue-400 hover:text-blue-300">
+      &#9651; Log Analyzer
+    </a>
+    <span class="text-slate-500 text-sm">Enterprise Log Intelligence Platform</span>
+  </nav>
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

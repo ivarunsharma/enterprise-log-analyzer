@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Upload Log — Log Analyzer{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+  <div class="mb-8 text-center">
+    <h1 class="text-3xl font-bold text-white mb-2">Enterprise Log Analyzer</h1>
+    <p class="text-slate-400">Upload production log files for AI-powered root cause analysis and remediation suggestions</p>
+  </div>
+
+  {% if error %}
+  <div class="bg-red-900/40 border border-red-700 text-red-300 rounded-lg px-4 py-3 mb-6">
+    {{ error }}
+  </div>
+  {% endif %}
+
+  <div class="bg-slate-900 border border-slate-700 rounded-xl p-8">
+    <form id="upload-form" enctype="multipart/form-data">
+      <!-- Drop zone -->
+      <div id="drop-zone"
+           class="border-2 border-dashed border-slate-600 rounded-lg p-12 text-center cursor-pointer hover:border-blue-500 transition-colors mb-6"
+           onclick="document.getElementById('file-input').click()">
+        <div class="text-4xl mb-3">&#128196;</div>
+        <p class="text-slate-300 font-medium">Drop log file here or <span class="text-blue-400 underline">browse</span></p>
+        <p class="text-slate-500 text-sm mt-1">Supported: .log, .txt, .out (max 50 MB)</p>
+        <input id="file-input" name="file" type="file" accept=".log,.txt,.out" class="hidden" required />
+      </div>
+
+      <div id="file-name" class="hidden bg-slate-800 rounded px-3 py-2 text-sm text-slate-300 mb-6 flex items-center gap-2">
+        <span class="text-green-400">&#10003;</span>
+        <span id="file-name-text"></span>
+      </div>
+
+      <!-- Severity filter -->
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-slate-300 mb-3">Severity Levels to Analyze</label>
+        <div class="flex flex-wrap gap-3">
+          {% for sev, color in [("ERROR","red"), ("WARN","orange"), ("INFO","blue"), ("DEBUG","gray")] %}
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" name="sev_{{ sev }}" checked
+                   class="rounded border-slate-600 bg-slate-800 text-{{ color }}-500 focus:ring-{{ color }}-500" />
+            <span class="text-sm px-2 py-0.5 rounded bg-{{ color }}-900/40 text-{{ color }}-300 font-mono">
+              {{ sev }}
+            </span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button type="submit" id="submit-btn"
+              class="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors">
+        Analyze Log File
+      </button>
+    </form>
+
+    <!-- Progress state -->
+    <div id="progress" class="hidden mt-6">
+      <div class="flex items-center gap-3 text-slate-300">
+        <div class="animate-spin w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full"></div>
+        <span id="progress-text">Uploading...</span>
+      </div>
+      <div class="mt-3 bg-slate-800 rounded-full h-2">
+        <div id="progress-bar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width:10%"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="text-center text-slate-600 text-xs mt-6">
+    Powered by LangChain + Azure OpenAI gpt-4.1-mini
+  </p>
+</div>
+
+<script src="/static/js/app.js"></script>
+{% endblock %}
